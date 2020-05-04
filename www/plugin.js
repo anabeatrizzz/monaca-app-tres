@@ -25,4 +25,15 @@ $(function(){
     // Vibrando o celular por 3 segundos. ( ͡° ͜ʖ ͡°)
     navigator.vibrate(300)
   })
+
+  $("#btn5").click(function(){
+    var deuBom = function(posicao) {
+        alert(`Latitude: ${posicao.coords.latitude}\n Longitude: ${posicao.coords.longitude}\n` /* Altitude: ${posicao.coords.altitude}\n Precisão: ${posicao.coords.accuracy}\n Precisão da altitude: ${posicao.coords.altitudeAccuracy}\n Direção: ${posicao.coords.heading}\n Velocidade: ${posicao.coords.speed}\n Horario: ${posicao.timestamp}`*/);
+    };
+    function deuRuim(erro) {
+        alert('Codigo: '    + erro.code    + '\n' +
+              'Mensagem: ' + erro.message + '\n');
+    }
+    navigator.geolocation.getCurrentPosition(deuBom, deuRuim);
+  })
 })
