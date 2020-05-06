@@ -7,11 +7,15 @@
     
     <link rel="stylesheet" href="components/loader.css">
     <link rel="stylesheet" href="components/bootstrap/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/style.css">
         
     <script src="components/loader.js"></script>
     <script src="components/bootstrap/dist/js/bootstrap.min.js"></script>
-    <!--<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>-->
     <script src="components/jquery/dist/jquery.min.js"></script>
+
+    <!-- Links do mapquest -->
+    <script src="https://api.mqcdn.com/sdk/mapquest-js/v1.3.2/mapquest.js"></script>
+    <link type="text/css" rel="stylesheet" href="https://api.mqcdn.com/sdk/mapquest-js/v1.3.2/mapquest.css"/>
     
 </head>
 <body>
@@ -21,6 +25,7 @@
         <h1 class="text-center">Plugins</h1>
       </div>
     </div>
+    <hr>
     <div class="row">
       <div class="col-sm">
         <button class="btn btn-primary btn-block" id="btn1">
@@ -58,6 +63,12 @@
         <button class="btn btn-primary btn-block" id="btn5">
           Localização
         </button>
+      </div>
+    </div>
+    <br>
+    <div class="row">
+      <div class="col-sm-12">
+        <div class="text-center" id="map">Clique em Localização para ver o mapa!</div>
       </div>
     </div>
   </div>

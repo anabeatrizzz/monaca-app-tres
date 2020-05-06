@@ -1,6 +1,22 @@
 // This is a JavaScript file
 
 $(function(){
+  function mostrarMapa(la, lo){
+    L.mapquest.key = 'krtqWEwb45vu1QC8Kd95tVKpiZrAseL6';
+    var map = L.mapquest.map('map', {
+      center: [la, lo],
+      layers: L.mapquest.tileLayer('map'),
+      zoom: 12
+    });
+    map.addControl(L.mapquest.control());
+
+    // Recurso: https://developer.mapquest.com/documentation/mapquest-js/v1.3/examples/map-with-markers-circles-polygons/
+    L.marker([la, lo], {
+      icon: L.mapquest.icons.marker(),
+      draggable: false
+    }).bindPopup().addTo(map);
+  }
+
   $("#btn1").click(function(){
     navigator.notification.alert("teste")
   })
@@ -28,11 +44,10 @@ $(function(){
 
   $("#btn5").click(function(){
     var deuBom = function(posicao) {
-        alert(`Latitude: ${posicao.coords.latitude}\n Longitude: ${posicao.coords.longitude}\n` /* Altitude: ${posicao.coords.altitude}\n Precisão: ${posicao.coords.accuracy}\n Precisão da altitude: ${posicao.coords.altitudeAccuracy}\n Direção: ${posicao.coords.heading}\n Velocidade: ${posicao.coords.speed}\n Horario: ${posicao.timestamp}`*/);
+      mostrarMapa(posicao.coords.latitude, posicao.coords.longitude)
     };
     function deuRuim(erro) {
-        alert('Codigo: '    + erro.code    + '\n' +
-              'Mensagem: ' + erro.message + '\n');
+        alert(`Codigo: ${erro.code}\nMensagem: ${erro.message}`);
     }
     navigator.geolocation.getCurrentPosition(deuBom, deuRuim);
   })
